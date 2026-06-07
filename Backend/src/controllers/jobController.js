@@ -34,7 +34,7 @@ const getJobById = async (req, res) => {
 
 const getMyJobs = async (req, res) => {
   try {
-    const jobs = await jobModel.getMyJobs(req.user.id);
+    const jobs = await jobModel.getJobsByRecruiter(req.user.id);
 
     res.json({
       success: true,
@@ -85,7 +85,14 @@ const updateJob = async (req, res) => {
 
 const deleteJob = async (req, res) => {
   try {
-    await jobModel.deleteJob(req.params.id);
+    const result = await jobModel.deleteJob(req.params.id, req.user.id);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "Job not found or not yours",
+      });
+    }
 
     res.json({
       success: true,
