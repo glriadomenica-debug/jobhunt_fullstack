@@ -32,6 +32,22 @@ const getJobById = async (req, res) => {
   }
 };
 
+const getMyJobs = async (req, res) => {
+  try {
+    const jobs = await jobModel.getMyJobs(req.user.id);
+
+    res.json({
+      success: true,
+      data: jobs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 const createJob = async (req, res) => {
   try {
     const jobId = await jobModel.createJob({
@@ -89,4 +105,5 @@ module.exports = {
   createJob,
   updateJob,
   deleteJob,
+  getMyJobs,
 };

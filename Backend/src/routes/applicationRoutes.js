@@ -2,17 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const applicationController = require("../controllers/applicationController");
-
 const validateAuth = require("../middleware/validateAuth");
 
-// Job seeker only
-router.post(
-  "/jobs/:id/apply",
-  validateAuth.validateToken,
-  validateAuth.validateJobSeeker,
-  applicationController.applyJob,
-);
-
+// Job seeker - lihat riwayat lamaran sendiri
 router.get(
   "/mine",
   validateAuth.validateToken,
@@ -20,14 +12,7 @@ router.get(
   applicationController.getMyApplications,
 );
 
-// Recruiter only
-router.get(
-  "/jobs/:id/applicants",
-  validateAuth.validateToken,
-  validateAuth.validateRecruiter,
-  applicationController.getApplicants,
-);
-
+// Recruiter - update status lamaran
 router.put(
   "/:id",
   validateAuth.validateToken,

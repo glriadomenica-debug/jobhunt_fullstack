@@ -14,6 +14,15 @@ const getJobById = async (id) => {
   return rows[0];
 };
 
+const getMyJobs = async (recruiterId) => {
+  const [rows] = await db.pool.query(
+    "SELECT * FROM jobs WHERE recruiter_id = ?",
+    [recruiterId],
+  );
+
+  return rows;
+};
+
 const createJob = async (data) => {
   const [result] = await db.pool.query(`INSERT INTO jobs SET ?`, [data]);
 
@@ -41,4 +50,5 @@ module.exports = {
   createJob,
   updateJob,
   deleteJob,
+  getMyJobs,
 };
