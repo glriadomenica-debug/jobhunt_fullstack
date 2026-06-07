@@ -10,4 +10,8 @@ router.post(
   authController.register,
 );
 
+router.post("/login", validateAuth.validateLogin, authController.login);
+
+router.get("/me", validateAuth.validateToken, authController.me);
+
 module.exports = router;

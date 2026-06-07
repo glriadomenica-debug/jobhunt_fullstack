@@ -5,12 +5,16 @@ const cors = require("cors");
 const errorHandler = require("./src/middleware/errorHandler");
 const db = require("./src/config/db");
 const authRoutes = require("./src/routes/authRoutes");
+const jobRoutes = require("./src/routes/jobRoutes");
+const applicationRoutes = require("./src/routes/applicationRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/jobs", jobRoutes);
+app.use("/api/applications", applicationRoutes);
 app.use(errorHandler);
 
 app.get("/api/health", (req, res) => {
