@@ -12,7 +12,7 @@ function LoginPage() {
   const [success, setSuccess] = useState("");
   const { loginUser } = useAuth();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     setError("");
