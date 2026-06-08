@@ -1,15 +1,13 @@
 const db = require("../config/db");
 
 const applyJob = async (data) => {
-  const [result] = await db.pool.query("INSERT INTO applications SET ?", [
-    data,
-  ]);
+  const [result] = await db.query("INSERT INTO applications SET ?", [data]);
 
   return result.insertId;
 };
 
 const getMyApplications = async (userId) => {
-  const [rows] = await db.pool.query(
+  const [rows] = await db.query(
     `
     SELECT
       applications.*,
@@ -27,7 +25,7 @@ const getMyApplications = async (userId) => {
 };
 
 const getApplicants = async (jobId) => {
-  const [rows] = await db.pool.query(
+  const [rows] = await db.query(
     `
     SELECT
       applications.*,
@@ -45,7 +43,7 @@ const getApplicants = async (jobId) => {
 };
 
 const updateStatus = async (applicationId, status) => {
-  const [result] = await db.pool.query(
+  const [result] = await db.query(
     `
     UPDATE applications
     SET status=?

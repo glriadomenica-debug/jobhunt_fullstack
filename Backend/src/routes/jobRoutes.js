@@ -18,13 +18,13 @@ router.get(
 
 router.get("/:id", jobController.getJobById);
 
-// Recruiter Dashboard
-router.get(
-  "/mine",
-  validateAuth.validateToken,
-  validateAuth.validateRecruiter,
-  jobController.getMyJobs,
-);
+// // Recruiter Dashboard
+// router.get(
+//   "/mine",
+//   validateAuth.validateToken,
+//   validateAuth.validateRecruiter,
+//   jobController.getMyJobs,
+// );
 
 // Create Job
 router.post(
