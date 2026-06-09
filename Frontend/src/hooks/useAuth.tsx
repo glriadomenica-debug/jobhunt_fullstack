@@ -1,4 +1,5 @@
 import { login, register } from "../services/authService";
+import { updateProfile } from "../services/authService";
 
 export const useAuth = () => {
   const loginUser = async (email: string, password: string) => {
@@ -30,14 +31,21 @@ export const useAuth = () => {
     return data;
   };
 
+  const updateUserProfile = async (name: string) => {
+    return await updateProfile(name);
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+
+    window.location.href = "/";
   };
 
   return {
     loginUser,
     registerUser,
     logout,
+    updateUserProfile,
   };
 };

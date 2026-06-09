@@ -89,7 +89,7 @@ const login = async (req, res) => {
   }
 };
 
-const me = async (req, res) => {
+const profile = async (req, res) => {
   try {
     const user = await userModel.findById(req.user.id);
 
@@ -105,8 +105,27 @@ const me = async (req, res) => {
   }
 };
 
+const updateProfile = async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    await userModel.updateProfile(req.user.id, name);
+
+    res.json({
+      success: true,
+      message: "Profile updated successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   register,
   login,
-  me,
+  profile,
+  updateProfile,
 };

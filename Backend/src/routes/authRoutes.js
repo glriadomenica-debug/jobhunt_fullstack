@@ -15,6 +15,11 @@ router.post(
 router.post("/login", validateAuth.validateLogin, authController.login);
 
 // Current User Profile
-router.get("/me", validateAuth.validateToken, authController.me);
+router.get("/profile", validateAuth.validateToken, authController.profile);
+router.put(
+  "/profile",
+  validateAuth.validateToken,
+  authController.updateProfile,
+);
 
 module.exports = router;

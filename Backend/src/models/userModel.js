@@ -25,9 +25,22 @@ const createUser = async (name, email, password, role) => {
 
   return result.insertId;
 };
+const updateProfile = async (id, name) => {
+  const [result] = await db.query(
+    `
+    UPDATE users
+    SET name = ?
+    WHERE id = ?
+    `,
+    [name, id],
+  );
+
+  return result;
+};
 
 module.exports = {
   findByEmail,
   createUser,
   findById,
+  updateProfile,
 };

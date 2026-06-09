@@ -3,22 +3,31 @@ import { Outlet } from "react-router-dom";
 function AuthLayout() {
   return (
     <div className="min-h-screen flex">
-      {/* Left Section */}
-      <div className="hidden md:flex w-1/2 bg-blue-600 text-white items-center justify-center">
-        <div className="max-w-md px-8">
-          <h1 className="text-4xl font-bold mb-4">
-            JobHunt
+      <div className="hidden md:flex w-1/2 relative overflow-hidden items-center justify-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
+          style={{
+            backgroundImage:
+              "url('https://m.economictimes.com/thumb/msid-78077062,width-1600,height-900,resizemode-4,imgsize-386073/job2.jpg')",
+          }}
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        <div className="relative z-10 max-w-md px-8">
+          <h1 className="text-5xl font-bold mb-4 text-white">
+            Connect.Hire.Grow
           </h1>
 
-          <p className="text-lg">
-            Find your dream job and connect with top
-            companies.
+          <p className="text-lg text-white">
+            The Easiest Way to Connect Job Seekers and Employers
           </p>
         </div>
       </div>
 
-      {/* Right Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-50">
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-indigo-100">
         <Outlet />
       </div>
     </div>

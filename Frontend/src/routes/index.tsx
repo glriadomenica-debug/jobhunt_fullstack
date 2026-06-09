@@ -1,6 +1,8 @@
 import { useRoutes } from "react-router-dom";
-import AuthLayout from "../modules/auth/route";
+import AuthRoutes from "../modules/auth/route";
+import RecruiterRoutes from "../modules/Recruiters/route";
+import ProfileRoutes from "../modules/Profile/route";
 
 export default function AppRoutes() {
-  return useRoutes([...AuthLayout]);
+  return useRoutes([...AuthRoutes, ...RecruiterRoutes, ...ProfileRoutes]);
 }

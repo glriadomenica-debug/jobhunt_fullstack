@@ -23,3 +23,11 @@ export const register = async (data: RegisterData) => {
 
   return response.data;
 };
+
+export const updateProfile = async (name: string) => {
+  const response = await api.put("/auth/profile", {
+    name,
+  });
+
+  return response.data;
+};

@@ -46,8 +46,8 @@ function LoginPage() {
   };
 
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-xl shadow">
-      <h2 className="text-3xl font-bold mb-2">Login</h2>
+    <div className="w-full max-w-md bg-white p-8 h-130 rounded-xl shadow">
+      <h2 className="text-3xl font-bold mb-2 text-blue-900 font-bold">Login</h2>
 
       <p className="text-gray-500 mb-6">Welcome back!</p>
 
