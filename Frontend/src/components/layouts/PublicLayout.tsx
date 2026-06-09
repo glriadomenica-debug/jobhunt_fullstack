@@ -5,21 +5,26 @@ function PublicLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* NAVBAR */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <Link to="/jobs" className="text-2xl font-bold text-blue-600">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link
+            to="/"
+            className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+          >
             JobHunt
           </Link>
 
-          <div className="flex gap-4 items-center">
-            <Link to="/" className="text-slate-600 hover:text-blue-600">
+          <div className="flex items-center gap-8">
+            <Link
+              to="/"
+              className="font-medium text-slate-600 hover:text-blue-600 transition"
+            >
               Jobs
             </Link>
 
             <button
               onClick={() => navigate("/login")}
-              className="px-4 py-2 bg-blue-600 text-white rounded-xl"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow hover:shadow-lg transition"
             >
               Login
             </button>
@@ -27,8 +32,37 @@ function PublicLayout() {
         </div>
       </header>
 
-      {/* CONTENT */}
-      <main className="max-w-6xl mx-auto p-6">
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <h1 className="text-5xl font-bold leading-tight">
+            Find Your Dream Job
+          </h1>
+
+          <p className="mt-4 text-xl text-blue-100 max-w-2xl">
+            Discover opportunities from top companies and start your next career
+            journey today.
+          </p>
+
+          <div className="mt-8 flex gap-4">
+            <button
+              onClick={() => navigate("/login")}
+              className="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold"
+            >
+              Apply Now
+            </button>
+
+            <button
+              onClick={() => navigate("/register")}
+              className="border border-white px-6 py-3 rounded-xl font-semibold"
+            >
+              Post a Job
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-6 py-10">
         <Outlet />
       </main>
     </div>

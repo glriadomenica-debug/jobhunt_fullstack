@@ -123,9 +123,9 @@ function JobDetailPage() {
           {hasApplied ? "Application Submitted" : "Apply Now"}
         </button>
 
-        <p className="text-xs text-slate-500 mt-2">
+        {/* <p className="text-xs text-slate-500 mt-2">
           You must login before applying
-        </p>
+        </p> */}
       </div>
     </div>
   );

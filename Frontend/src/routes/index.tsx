@@ -7,10 +7,10 @@ import PublicRoutes from "../modules/Public/route";
 
 export default function AppRoutes() {
   return useRoutes([
+    ...PublicRoutes,
     ...AuthRoutes,
     ...RecruiterRoutes,
     ...ProfileRoutes,
     ...JobSeekerRoutes,
-    ...PublicRoutes,
   ]);
 }

@@ -8,11 +8,17 @@ const PublicRoute = [
     element: <PublicLayout />,
     children: [
       {
-        path: "jobs",
+        path: "/",
         element: <JobPages />,
       },
+    ],
+  },
+  {
+    path: "/jobs/:id",
+    element: <PublicLayout />,
+    children: [
       {
-        path: "jobs/:id",
+        index: true,
         element: <JobDetails />,
       },
     ],

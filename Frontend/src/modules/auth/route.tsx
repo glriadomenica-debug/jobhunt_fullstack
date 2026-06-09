@@ -12,7 +12,7 @@ const AuthRoutes = [
         element: <Login />,
       },
       {
-        path: "/register",
+        path: "register",
         element: <RegisterPage />,
       },
     ],

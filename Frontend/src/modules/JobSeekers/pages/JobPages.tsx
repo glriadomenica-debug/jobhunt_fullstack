@@ -1,3 +1,8 @@
+// import JobsPage from "../../../modules/Public/pages/JobPages";
+// export default function JobPage() {
+//   return <JobsPage />;
+// }
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../../services/api";
@@ -109,7 +114,7 @@ function JobsPage() {
             </div>
 
             <button
-              onClick={() => navigate(`/jobs/${job.id}`)}
+              onClick={() => navigate(`/jobseekers/jobs/${job.id}`)}
               className="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl"
             >
               View Details
