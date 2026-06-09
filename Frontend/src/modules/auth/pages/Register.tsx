@@ -56,7 +56,7 @@ function RegisterPage() {
       setSuccess(data.message);
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 1500);
     } catch (error: any) {
       setError(error.response?.data?.message || "Registration failed");

@@ -4,7 +4,7 @@ import AuthLayout from "../../components/layouts/authLayouts";
 
 const AuthRoutes = [
   {
-    path: "/",
+    path: "/login",
     element: <AuthLayout />,
     children: [
       {
