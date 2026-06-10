@@ -48,8 +48,8 @@ function JobSeekerLayout() {
             📄 My Applications
           </NavLink>
 
-          {/* <NavLink
-            to="/profile"
+          <NavLink
+            to="/jobseekers/profile"
             className={({ isActive }) =>
               `block px-4 py-3 rounded-xl transition ${
                 isActive
@@ -59,7 +59,7 @@ function JobSeekerLayout() {
             }
           >
             👤 My Profile
-          </NavLink> */}
+          </NavLink>
         </nav>
 
         <div className="p-4 border-t border-white/10">

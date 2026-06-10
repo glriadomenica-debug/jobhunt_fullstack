@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../../services/api";
 
 function JobsPage() {
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
   const [jobs, setJobs] = useState<any[]>([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
@@ -52,13 +53,13 @@ function JobsPage() {
 
   return (
     <div>
-      {/* HEADER */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-slate-800">
-          Find Your Dream Job
-        </h1>
+        <h1 className="text-4xl font-bold text-slate-800">Welcome Back, {user.name} 👋</h1>
 
-        <p className="text-black text-xl">Explore thousands of opportunities</p>
+        <p className="text-xl text-slate-300 mt-2">
+          Discover new opportunities and track your
+          applications
+        </p>
       </div>
 
       {/* SEARCH + FILTER */}

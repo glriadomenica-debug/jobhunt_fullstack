@@ -2,6 +2,7 @@ import MyApplication from "./pages/MyApplication";
 import JobSeekerLayout from "../../components/layouts/jobseekerLayout";
 import JobPages from "./pages/JobPages";
 import JobsDetails from "./pages/JobDetails";
+import ProfileJobSeeker from "../Profile/pages/ProfilePage";
 
 const JobSeekersRoute = [
   {
@@ -31,6 +32,16 @@ const JobSeekersRoute = [
       {
         index: true,
         element: <JobsDetails />,
+      },
+    ],
+  },
+  {
+    path: "/jobseekers/profile",
+    element: <JobSeekerLayout />,
+    children: [
+      {
+        index: true,
+        element: <ProfileJobSeeker />,
       },
     ],
   },

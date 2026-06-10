@@ -4,6 +4,7 @@ import MyJobPage from "./pages/MyJobsPage";
 import EditJobPage from "./pages/EditJobPage";
 import CreateJobPage from "./pages/CreateJobPage";
 import ApplicantsPage from "./pages/ApplicantsPage";
+import ProfileRecruiter from "../Profile/pages/ProfilePage";
 
 const RecruiterRoutes = [
   {
@@ -53,6 +54,16 @@ const RecruiterRoutes = [
       {
         index: true,
         element: <ApplicantsPage />,
+      },
+    ],
+  },
+  {
+    path: "/profile",
+    element: <RecruiterLayout />,
+    children: [
+      {
+        index: true,
+        element: <ProfileRecruiter />,
       },
     ],
   },
