@@ -103,14 +103,14 @@ function EditJobPage() {
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white">Edit Job</h1>
+          <h1 className="text-3xl font-bold text-blue-800">Edit Job</h1>
 
-          <p className="text-lg text-slate-400 font-bold mt-2">
+          <p className="text-lg text-slate-700 font-bold mt-2">
             Update your job posting information.
           </p>
         </div>
 
-        <div className="rounded-3xl shadow-sm border border-slate-100 p-8">
+        <div className="bg-blue-800 rounded-3xl shadow-sm border border-slate-100 p-8">
           {error && (
             <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
               {error}

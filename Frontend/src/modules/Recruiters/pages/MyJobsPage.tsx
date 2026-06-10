@@ -62,7 +62,7 @@ function MyJobsPage() {
 
           <button
             onClick={() => navigate("/jobs/create")}
-            className=" bg-blue-600 text-xl px-5 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
+            className=" bg-blue-600 text-white text-xl px-4 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
           >
             + Create Job
           </button>
@@ -77,13 +77,13 @@ function MyJobsPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <h2 className="text-2xl font-bold text-white">{job.title}</h2>
-                  <p className="mt-3 text-xl text-white font-bold">
+                  <p className="mt-3 text-xl text-white">
                     Salary: Rp {Number(job.salary_min).toLocaleString()}
                     {" - "}
                     Rp {Number(job.salary_max).toLocaleString()}
                   </p>
 
-                  <p className="text-lg text-white font-bold mt-1">
+                  <p className="text-lg text-white mt-1">
                     {job.company}
                   </p>
 
@@ -105,13 +105,13 @@ function MyJobsPage() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-md text-white font-bold">
+                  <p className="mt-4 text-md text-white">
                     {job.description}
                   </p>
 
                   {/* <p className="mt-3 text-md text-slate-500">Requirements:</p> */}
 
-                  <p className="mt-4 text-md text-white font-bold">
+                  <p className="mt-4 text-md text-white">
                     {job.requirements}
                   </p>
                 </div>

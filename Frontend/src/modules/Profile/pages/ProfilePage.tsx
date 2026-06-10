@@ -33,9 +33,9 @@ function ProfilePage() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-white">My Profile</h1>
+        <h1 className="text-3xl font-bold text-black">My Profile</h1>
 
-        <p className="text-slate-400 mt-2">Manage your account information</p>
+        <p className="text-slate-700 font-bold mt-2">Manage your account information</p>
       </div>
 
       {/* Profile Card */}
