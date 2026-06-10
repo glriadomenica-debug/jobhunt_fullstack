@@ -53,9 +53,9 @@ function MyJobsPage() {
       <div>
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">My Jobs</h1>
+            <h1 className="text-3xl font-bold text-black">My Jobs</h1>
 
-            <p className="text-lg text-slate-400 tex-bold mt-2">Manage your job postings</p>
+            <p className="text-lg text-slate-200 tex-bold mt-2">Manage your job postings</p>
           </div>
 
           <button
@@ -70,7 +70,7 @@ function MyJobsPage() {
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="bg-black rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
+              className="bg-blue-800 rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
             >
               <div className="flex justify-between items-start">
                 <div>
