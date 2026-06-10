@@ -1,10 +1,3 @@
-process.on("uncaughtException", (err) => {
-  console.log("UNCUGHT ERROR:", err);
-});
-
-process.on("unhandledRejection", (err) => {
-  console.log("PROMISE ERROR:", err);
-});
 require("dotenv").config();
 
 const express = require("express");
@@ -28,19 +21,21 @@ app.use("/api/applications", applicationRoutes);
 
 // health check
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok" });
+  res.json({
+    status: "ok",
+    message: "Server running",
+  });
 });
 
 // test db
 app.get("/api/test-db", async (req, res) => {
   try {
-    const [rows] = await db.query("SELECT 1 as test");
+    const [rows] = await db.query("SELECT NOW()");
     res.json({
       success: true,
       data: rows,
     });
   } catch (error) {
-    console.error("DB ERROR:", error);
     res.status(500).json({
       success: false,
       message: error.message,
