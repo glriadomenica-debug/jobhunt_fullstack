@@ -35,9 +35,9 @@ function DashboardPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-white">Welcome Back 👋</h1>
+        <h1 className="text-4xl font-bold text-black">Welcome Back 👋</h1>
 
-        <p className="text-slate-200 mt-2">
+        <p className="text-slate-700 font-bold mt-2">
           Hello {user.name}, manage your job postings and applicants here
         </p>
       </div>

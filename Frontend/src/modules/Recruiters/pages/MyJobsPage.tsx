@@ -55,12 +55,14 @@ function MyJobsPage() {
           <div>
             <h1 className="text-3xl font-bold text-black">My Jobs</h1>
 
-            <p className="text-lg text-slate-200 tex-bold mt-2">Manage your job postings</p>
+            <p className="text-lg text-slate-700 tex-bold mt-2">
+              Manage your job postings
+            </p>
           </div>
 
           <button
             onClick={() => navigate("/jobs/create")}
-            className=" bg-gradient-to-r from-black-600 to-indigo-600 text-white text-xl px-5 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
+            className=" bg-blue-600 text-xl px-5 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
           >
             + Create Job
           </button>
@@ -74,20 +76,18 @@ function MyJobsPage() {
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="text-2xl font-bold text-blue-800">
-                    {job.title}
-                  </h2>
-                  <p className="mt-3 text-lg text-slate-400 font-bold">
+                  <h2 className="text-2xl font-bold text-white">{job.title}</h2>
+                  <p className="mt-3 text-xl text-white font-bold">
                     Salary: Rp {Number(job.salary_min).toLocaleString()}
                     {" - "}
                     Rp {Number(job.salary_max).toLocaleString()}
                   </p>
 
-                  <p className="text-lg text-slate-500 font-bold mt-1">
+                  <p className="text-lg text-white font-bold mt-1">
                     {job.company}
                   </p>
 
-                  <p className="text-xl text-white mt-2">📍 {job.location}</p>
+                  <p className="text-lg text-white mt-2">📍 {job.location}</p>
 
                   <div className="flex gap-2 mt-3">
                     <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-md">
@@ -105,13 +105,13 @@ function MyJobsPage() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-lg text-slate-400 font-bold">
+                  <p className="mt-4 text-md text-white font-bold">
                     {job.description}
                   </p>
 
                   {/* <p className="mt-3 text-md text-slate-500">Requirements:</p> */}
 
-                  <p className="mt-4 text-lg text-slate-400 font-bold">
+                  <p className="mt-4 text-md text-white font-bold">
                     {job.requirements}
                   </p>
                 </div>
@@ -121,14 +121,14 @@ function MyJobsPage() {
                   onClick={() => navigate(`/jobs/${job.id}/applicants`)}
                   className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl cursor-pointer"
                 >
-                  <TiDocumentText size={25} />
+                  <TiDocumentText size={15} />
                 </button>
 
                 <button
                   onClick={() => navigate(`/jobs/edit/${job.id}`)}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl cursor-pointer"
                 >
-                  <TiEdit size={25} />
+                  <TiEdit size={15} />
                 </button>
 
                 <button
@@ -138,7 +138,7 @@ function MyJobsPage() {
                   }}
                   className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2 rounded-xl cursor-pointer"
                 >
-                  <TiTrash size={25} />
+                  <TiTrash size={15} />
                 </button>
               </div>
             </div>

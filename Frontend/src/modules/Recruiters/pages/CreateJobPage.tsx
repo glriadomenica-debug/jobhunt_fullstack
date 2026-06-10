@@ -71,14 +71,14 @@ function CreateJobPage() {
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white">Create Job</h1>
+          <h1 className="text-4xl font-bold text-black">Create Job</h1>
 
-          <p className="text-lg text-slate-400 mt-2">
+          <p className="text-lg text-slate-400 font-bold mt-2">
             Create a new job posting.
           </p>
         </div>
 
-        <div className="rounded-3xl shadow-lg border border-slate-100 p-8 md:p-12">
+        <div className="bg-blue-800 rounded-3xl shadow-lg border border-slate-100 p-8 md:p-12">
           {error && (
             <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
               {error}
