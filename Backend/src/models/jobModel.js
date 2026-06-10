@@ -41,6 +41,33 @@ const deleteJob = async (jobId, recruiterId) => {
   return result;
 };
 
+const getDashboardStats = async (recruiterId) => {
+  const [[jobStats]] = await db.query(
+    `
+    SELECT COUNT(*) as totalJobs
+    FROM jobs
+    WHERE recruiter_id = ?
+    `,
+    [recruiterId],
+  );
+
+  const [[applicantStats]] = await db.query(
+    `
+    SELECT COUNT(*) as totalApplicants
+    FROM applications a
+    JOIN jobs j
+      ON j.id = a.job_id
+    WHERE j.recruiter_id = ?
+    `,
+    [recruiterId],
+  );
+
+  return {
+    totalJobs: jobStats.totalJobs,
+    totalApplicants: applicantStats.totalApplicants,
+  };
+};
+
 module.exports = {
   getAllJobs,
   getJobById,
@@ -48,4 +75,5 @@ module.exports = {
   updateJob,
   deleteJob,
   getJobsByRecruiter,
+  getDashboardStats,
 };

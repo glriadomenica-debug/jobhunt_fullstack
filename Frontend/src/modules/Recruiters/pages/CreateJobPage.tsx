@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useJobs } from "../../../hooks/useJobs";
+import { TiCancel } from "react-icons/ti";
+import { VscSaveAs } from "react-icons/vsc";
 
 function CreateJobPage() {
   const navigate = useNavigate();
@@ -69,12 +71,14 @@ function CreateJobPage() {
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-800">Create Job</h1>
+          <h1 className="text-4xl font-bold text-white">Create Job</h1>
 
-          <p className="text-slate-500 mt-2">Create a new job posting.</p>
+          <p className="text-lg text-slate-400 mt-2">
+            Create a new job posting.
+          </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-8 md:p-12">
+        <div className="rounded-3xl shadow-lg border border-slate-100 p-8 md:p-12">
           {error && (
             <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
               {error}
@@ -93,7 +97,7 @@ function CreateJobPage() {
               placeholder="Job Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             />
 
             <input
@@ -101,7 +105,7 @@ function CreateJobPage() {
               placeholder="Company"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             />
 
             <input
@@ -109,13 +113,13 @@ function CreateJobPage() {
               placeholder="Location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             />
 
             <select
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             >
               <option value="full-time">Full Time</option>
 
@@ -131,7 +135,7 @@ function CreateJobPage() {
               placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             />
 
             <textarea
@@ -139,7 +143,7 @@ function CreateJobPage() {
               placeholder="Requirements"
               value={requirements}
               onChange={(e) => setRequirements(e.target.value)}
-              className="w-full p-3 border rounded-xl"
+              className="w-full p-3 text-lg text-black font-bold border border-white rounded-xl"
             />
 
             <div className="grid md:grid-cols-2 gap-4">
@@ -148,7 +152,7 @@ function CreateJobPage() {
                 placeholder="Minimum Salary"
                 value={salaryMin}
                 onChange={(e) => setSalaryMin(e.target.value)}
-                className="p-3 border rounded-xl"
+                className="p-3 text-lg text-black font-bold border border-white rounded-xl"
               />
 
               <input
@@ -156,7 +160,7 @@ function CreateJobPage() {
                 placeholder="Maximum Salary"
                 value={salaryMax}
                 onChange={(e) => setSalaryMax(e.target.value)}
-                className="p-3 border rounded-xl"
+                className="p-3 text-lg text-black font-bold border border-white rounded-xl"
               />
             </div>
 
@@ -164,16 +168,16 @@ function CreateJobPage() {
               <button
                 type="button"
                 onClick={() => navigate("/my-jobs")}
-                className="px-5 py-3 border rounded-xl"
+                className="px-5 py-3 border border-white bg-red-700 text-black cursor-pointer rounded-xl hover:bg-red-500"
               >
-                Cancel
+                <TiCancel size={20}/>
               </button>
 
               <button
                 type="submit"
-                className=" px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl"
+                className=" px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer rounded-xl border border-white"
               >
-                Create Job
+                <VscSaveAs size={20}/>
               </button>
             </div>
           </form>

@@ -30,7 +30,7 @@ function ApplicantsPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Job Applicants</h1>
+      <h1 className="text-3xl font-bold text-white mb-6">Job Applicants</h1>
 
       <div className="space-y-4">
         {applicants.map((app) => (

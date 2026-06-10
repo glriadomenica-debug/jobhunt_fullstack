@@ -3,15 +3,12 @@ import { useAuth } from "../../../hooks/useAuth";
 
 function ProfilePage() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
-
   const [name, setName] = useState(user.name);
-
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-
   const { updateUserProfile } = useAuth();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     try {
@@ -36,9 +33,9 @@ function ProfilePage() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-slate-800">My Profile</h1>
+        <h1 className="text-4xl font-bold text-white">My Profile</h1>
 
-        <p className="text-slate-500 mt-2">Manage your account information</p>
+        <p className="text-slate-400 mt-2">Manage your account information</p>
       </div>
 
       {/* Profile Card */}

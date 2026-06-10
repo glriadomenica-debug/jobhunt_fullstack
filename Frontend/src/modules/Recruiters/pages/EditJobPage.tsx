@@ -103,14 +103,14 @@ function EditJobPage() {
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-800">Edit Job</h1>
+          <h1 className="text-4xl font-bold text-white">Edit Job</h1>
 
-          <p className="text-slate-500 mt-2">
+          <p className="text-lg text-slate-400 font-bold mt-2">
             Update your job posting information.
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8">
+        <div className="rounded-3xl shadow-sm border border-slate-100 p-8">
           {error && (
             <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
               {error}
@@ -124,7 +124,7 @@ function EditJobPage() {
           )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Job Title
               </label>
 
@@ -133,12 +133,12 @@ function EditJobPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Frontend Developer"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500focus:border-transparent transition"
+                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500focus:border-transparent transition"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Company Name
               </label>
 
@@ -147,12 +147,12 @@ function EditJobPage() {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="Google"
-                className=" w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className=" w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Location
               </label>
 
@@ -161,20 +161,20 @@ function EditJobPage() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Jakarta, Indonesia"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500
+                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500
               focus:border-transparent"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Job Type
               </label>
 
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-full px-4py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 rounded-xl text-slate-500 font-bold border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="full-time">Full Time</option>
                 <option value="part-time">Part Time</option>
@@ -186,7 +186,7 @@ function EditJobPage() {
             {/* Salary */}
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-lg font-bold text-white mb-2">
                   Minimum Salary
                 </label>
 
@@ -194,12 +194,12 @@ function EditJobPage() {
                   type="number"
                   value={salaryMin}
                   onChange={(e) => setSalaryMin(e.target.value)}
-                  className=" w-full px-4 py-3 rounded-xl border border-slate-200"
+                  className=" w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-lg font-bold text-white mb-2">
                   Maximum Salary
                 </label>
 
@@ -207,13 +207,13 @@ function EditJobPage() {
                   type="number"
                   value={salaryMax}
                   onChange={(e) => setSalaryMax(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200"
+                  className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Job Description
               </label>
 
@@ -222,12 +222,12 @@ function EditJobPage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Describe the job..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-lg font-bold text-white mb-2">
                 Requirements
               </label>
 
@@ -236,13 +236,13 @@ function EditJobPage() {
                 value={requirements}
                 onChange={(e) => setRequirements(e.target.value)}
                 placeholder="React, JavaScript, Tailwind"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
             {/* Status */}
             <div>
-              <label className="flex items-center gap-3 text-slate-700">
+              <label className="flex items-center gap-3 text-lg text-slate-400 font-bold">
                 <input
                   type="checkbox"
                   checked={isActive}
@@ -258,14 +258,14 @@ function EditJobPage() {
               <button
                 type="button"
                 onClick={() => navigate("/my-jobs")}
-                className="px-6 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 transition"
+                className="px-6 py-3 rounded-xl border border-slate-300 text-white cursor-pointer hover:bg-slate-100 hover:text-blue-900 hover:font-bold transition"
               >
                 Cancel
               </button>
 
               <button
                 type="submit"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-md hover:shadow-lg hover:scale-[1.02] transition"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer font-medium shadow-md hover:shadow-lg hover:scale-[1.02] transition"
               >
                 Update Job
               </button>

@@ -14,7 +14,7 @@ function JobSeekerLayout() {
   return (
     <div className="h-screen flex bg-slate-50 overflow-hidden">
       {/* Sidebar */}
-      <aside className="w-72 border-r border-white/10 bg-gradient-to-b from-blue-700 to-indigo-800 text-white shadow-xl flex flex-col h-screen">
+      <aside className="w-72 border-r border-white/60 bg-gradient-to-b from-black to-indigo-800 text-white shadow-xl flex flex-col h-screen">
         <div className="p-8">
           <h1 className="text-3xl font-bold">JobHunt</h1>
 

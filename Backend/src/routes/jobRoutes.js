@@ -9,6 +9,13 @@ const validateAuth = require("../middleware/validateAuth");
 // Public
 router.get("/", jobController.getAllJobs);
 
+router.get(
+  "/dashboard/stats",
+  validateAuth.validateToken,
+  validateAuth.validateRecruiter,
+  jobController.getDashboardStats,
+);
+
 // Recruiter Dashboard
 router.get(
   "/mine",
