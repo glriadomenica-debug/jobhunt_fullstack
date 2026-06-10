@@ -22,17 +22,17 @@ function MyApplicationsPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">My Applications</h1>
+      <h1 className="text-white text-3xl font-bold mb-6">My Applications</h1>
 
       <div className="space-y-4">
         {apps.map((app) => (
           <div key={app.id} className="bg-white p-6 rounded-2xl shadow">
-            <h2 className="font-bold text-xl">{app.title}</h2>
+            <h2 className="text-blue-800 font-bold text-2xl">{app.title}</h2>
 
-            <p className="text-slate-600">{app.company}</p>
+            <p className="text-slate-600 text-lg">{app.company}</p>
 
             <span
-              className={`inline-block mt-3 px-3 py-1 rounded-full text-sm ${badge(
+              className={`inline-block mt-3 px-3 py-1 rounded-full text-md ${badge(
                 app.status,
               )}`}
             >

@@ -65,33 +65,31 @@ function JobDetailPage() {
   if (!job) return <p>Loading...</p>;
 
   return (
-    <div className="grid md:grid-cols-3 gap-6">
-      {/* LEFT */}
+    <div className="grid md:grid-cols-1 gap-3">
       <div className="md:col-span-2 bg-white p-6 rounded-2xl shadow">
-        <h1 className="text-3xl font-bold text-slate-800">{job.title}</h1>
+        <h1 className="text-3xl font-bold text-blue-800">{job.title}</h1>
 
-        <p className="text-slate-600 mt-1">{job.company}</p>
+        <p className="text-black mt-1">{job.company}</p>
 
         <div className="flex gap-2 mt-3">
-          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
+          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-md">
             {job.type}
           </span>
 
-          <span className="text-slate-500 text-sm">📍 {job.location}</span>
+          <span className="text-black text-md">📍 {job.location}</span>
         </div>
 
         <hr className="my-5" />
 
-        <h2 className="font-bold mb-2">Job Description</h2>
+        <h2 className="font-bold text-xl mb-2">Job Description</h2>
         <p className="text-slate-600">{job.description}</p>
 
-        <h2 className="font-bold mt-5 mb-2">Requirements</h2>
+        <h2 className="font-bold text-xl mt-5 mb-2">Requirements</h2>
         <p className="text-slate-600">{job.requirements}</p>
       </div>
 
-      {/* RIGHT APPLY CARD */}
       <div className="bg-white p-5 rounded-2xl shadow h-fit">
-        <h2 className="font-bold text-lg mb-3">Apply for this job</h2>
+        <h2 className="font-bold text-xl mb-3">Apply for this job</h2>
         {error && (
           <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-4">
             <p className="text-sm font-medium text-red-700">{error}</p>
@@ -114,7 +112,7 @@ function JobDetailPage() {
         <button
           disabled={hasApplied}
           onClick={handleApply}
-          className={`w-full mt-4 py-2 rounded-xl text-white transition ${
+          className={`px-9 mt-4 py-2 rounded-xl text-white transition ${
             hasApplied
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-green-600 hover:bg-green-700 cursor-pointer"

@@ -49,24 +49,24 @@ function JobsPage() {
     <div>
       {/* HEADER */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-800">
+        {/* <h1 className="text-3xl font-bold text-slate-800">
           Find Your Dream Job
-        </h1>
+        </h1> */}
 
-        <p className="text-slate-500">Explore thousands of opportunities</p>
+        <p className="text-slate-900 text-xl">Explore thousands of opportunities</p>
       </div>
 
       {/* SEARCH + FILTER */}
-      <div className="bg-white p-4 rounded-2xl shadow mb-6 flex flex-col md:flex-row gap-3">
+      <div className="p-4 rounded-2xl shadow mb-6 flex flex-col md:flex-row gap-3">
         <input
           type="text"
           placeholder="Search jobs or company..."
-          className="w-full border p-3 rounded-xl"
+          className="w-full border border-white p-3 rounded-xl"
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="border p-3 rounded-xl"
+          className="border border-white p-3 rounded-xl"
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="all">All</option>
@@ -78,7 +78,7 @@ function JobsPage() {
       </div>
 
       {/* GRID JOBS */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
         {filteredJobs.length === 0 && (
           <div className="col-span-full bg-white rounded-2xl p-10 text-center shadow">
             <h3 className="text-xl font-semibold text-slate-700">
@@ -94,13 +94,13 @@ function JobsPage() {
         {filteredJobs.map((job: any) => (
           <div
             key={job.id}
-            className="bg-white p-5 rounded-2xl shadow hover:shadow-lg transition"
+            className="bg-black p-5 rounded-2xl shadow hover:shadow-lg transition"
           >
-            <h2 className="text-xl font-bold text-slate-800">{job.title}</h2>
+            <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
 
-            <p className="text-slate-600">{job.company}</p>
+            <p className="text-white">{job.company}</p>
 
-            <p className="text-slate-500 text-sm">{job.location}</p>
+            <p className="text-white text-sm">📍{job.location}</p>
 
             <div className="mt-3">
               <span className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">
@@ -110,7 +110,7 @@ function JobsPage() {
 
             <button
               onClick={() => navigate(`/jobs/${job.id}`)}
-              className="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl"
+              className="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl cursor-pointer hover:text-black hover:bg-blue-800 hover:font-bold"
             >
               View Details
             </button>
