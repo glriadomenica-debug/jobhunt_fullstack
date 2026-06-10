@@ -74,7 +74,7 @@ function JobSeekerLayout() {
       </aside>
 
       {/* Content */}
-      <main className="flex-1 p-8 overflow-y-auto bg-gradient-to-b from-blue-700 to-indigo-800">
+      <main className="flex-1 p-8 overflow-y-auto bg-slate-700">
         <Outlet />
       </main>
     </div>

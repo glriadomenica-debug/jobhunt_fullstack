@@ -62,7 +62,7 @@ function MyJobsPage() {
 
           <button
             onClick={() => navigate("/jobs/create")}
-            className=" bg-blue-600 text-white text-xl px-4 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
+            className=" bg-blue-600 text-white text-lg px-3 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
           >
             + Create Job
           </button>
@@ -83,9 +83,7 @@ function MyJobsPage() {
                     Rp {Number(job.salary_max).toLocaleString()}
                   </p>
 
-                  <p className="text-lg text-white mt-1">
-                    {job.company}
-                  </p>
+                  <p className="text-lg text-white mt-1">{job.company}</p>
 
                   <p className="text-lg text-white mt-2">📍 {job.location}</p>
 
@@ -105,15 +103,11 @@ function MyJobsPage() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-md text-white">
-                    {job.description}
-                  </p>
+                  <p className="mt-4 text-md text-white">{job.description}</p>
 
                   {/* <p className="mt-3 text-md text-slate-500">Requirements:</p> */}
 
-                  <p className="mt-4 text-md text-white">
-                    {job.requirements}
-                  </p>
+                  <p className="mt-4 text-md text-white">{job.requirements}</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-3">
