@@ -9,7 +9,7 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("jobseeker");
+  const [role, setRole] = useState("job_seeker");
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -138,7 +138,7 @@ function RegisterPage() {
             onChange={(e) => setRole(e.target.value)}
             className="w-full border rounded-lg px-4 py-2"
           >
-            <option value="jobseeker">Job Seeker</option>
+            <option value="job_seeker">Job Seeker</option>
 
             <option value="recruiter">Recruiter</option>
           </select>
