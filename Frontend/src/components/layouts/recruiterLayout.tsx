@@ -89,7 +89,7 @@ function RecruiterLayout() {
       </aside>
 
       {/* Content */}
-      <main className="flex-1 p-8 overflow-y-auto bg-blue-900 ">
+      <main className="flex-1 p-8 overflow-y-auto">
         <Outlet />
       </main>
     </div>
