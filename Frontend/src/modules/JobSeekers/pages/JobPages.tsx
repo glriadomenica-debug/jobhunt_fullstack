@@ -33,9 +33,12 @@ function JobsPage() {
   }, []);
 
   if (loading) {
-    return <div>Loading jobs...</div>;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
+      </div>
+    );
   }
-
   console.log("Jobs State:", jobs);
 
   const filteredJobs = jobs.filter((job: any) => {
@@ -54,25 +57,26 @@ function JobsPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-black">Welcome Back, {user.name} 👋</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">
+          Welcome Back, {user.name} 👋
+        </h1>
 
-        <p className="text-lg text-slate-700 font-bold mt-2">
-          Discover new opportunities and track your
-          applications
+        <p className="text-sm md:text-lg text-slate-500 mt-2">
+          Discover new opportunities and track your applications
         </p>
       </div>
 
       {/* SEARCH + FILTER */}
-      <div className="p-4 rounded-2xl shadow mb-6 flex flex-col md:flex-row gap-3">
+      <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-col lg:flex-row gap-3">
         <input
           type="text"
           placeholder="Search jobs or company..."
-          className="w-full text-black border border-black p-3 rounded-xl"
+          className="flex-1 border border-slate-300 text-slate-800 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="text-black border border-black p-3 rounded-xl"
+          className="border border-slate-300 text-slate-800 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="all">All</option>
@@ -84,7 +88,7 @@ function JobsPage() {
       </div>
 
       {/* GRID JOBS */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {filteredJobs.length === 0 && (
           <div className="col-span-full bg-white rounded-2xl p-10 text-center shadow">
             <h3 className="text-xl font-semibold text-slate-700">
@@ -100,23 +104,23 @@ function JobsPage() {
         {filteredJobs.map((job: any) => (
           <div
             key={job.id}
-            className="bg-black p-5 rounded-2xl shadow hover:shadow-lg transition"
+            className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
-            <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
+            <h2 className="text-slate-900 text-xl font-bold">{job.title}</h2>
 
-            <p className="text-white">{job.company}</p>
+            <p className="text-slate-700 font-medium">{job.company}</p>
 
-            <p className="text-white text-sm">📍{job.location}</p>
+            <p className="text-slate-500 text-sm mt-1">📍{job.location}</p>
 
             <div className="mt-3">
-              <span className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">
+              <span className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">
                 {job.type}
               </span>
             </div>
 
             <button
               onClick={() => navigate(`/jobseekers/jobs/${job.id}`)}
-              className="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl cursor-pointer hover:text-black hover:bg-blue-800 hover:font-bold"
+              className="mt-5 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition cursor-pointer"
             >
               View Details
             </button>

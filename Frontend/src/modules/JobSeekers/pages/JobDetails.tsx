@@ -62,34 +62,46 @@ function JobDetailPage() {
     }
   };
 
-  if (!job) return <p>Loading...</p>;
+  if (!job) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
+      </div>
+    );
+  }
 
   return (
-    <div className="grid md:grid-cols-1 gap-3">
-      <div className="md:col-span-2 bg-blue-800 p-6 rounded-2xl shadow">
-        <h1 className="text-3xl font-bold text-black">{job.title}</h1>
+    <div className="max-w-5xl mx-auto space-y-5">
+      <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200">
+        <h1 className="text-2xl md:text-4xl font-bold text-slate-900">
+          {job.title}
+        </h1>
 
-        <p className="text-white mt-1">{job.company}</p>
+        <p className="text-slate-600 mt-2 text-lg">{job.company}</p>
 
-        <div className="flex gap-2 mt-3">
-          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-md">
+        <div className="flex flex-wrap gap-3 mt-4">
+          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
             {job.type}
           </span>
 
-          <span className="text-white text-md">📍 {job.location}</span>
+          <span className="text-slate-600 text-sm">📍 {job.location}</span>
         </div>
 
         <hr className="my-5" />
 
-        <h2 className="font-bold text-white text-xl mb-2">Job Description</h2>
-        <p className="text-white">{job.description}</p>
+        <h2 className="font-bold text-slate-900 text-xl mb-3">
+          Job Description
+        </h2>
+        <p className="text-slate-700 leading-7">{job.description}</p>
 
-        <h2 className="font-bold text-white text-xl mt-5 mb-2">Requirements</h2>
-        <p className="text-white">{job.requirements}</p>
+        <h2 className="font-bold text-slate-900 text-xl mb-3">Requirements</h2>
+        <p className="text-slate-700 leading-7">{job.requirements}</p>
       </div>
 
-      <div className="bg-blue-800 p-5 rounded-2xl shadow h-fit">
-        <h2 className="font-bold text-white text-xl mb-3">Apply for this job</h2>
+      <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+        <h2 className="font-bold text-slate-900 text-xl mb-4">
+          Apply for this job
+        </h2>
         {error && (
           <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-4">
             <p className="text-sm font-medium text-red-700">{error}</p>
@@ -106,13 +118,13 @@ function JobDetailPage() {
           required
           onChange={(e) => setCoverLetter(e.target.value)}
           placeholder="Write your cover letter..."
-          className="w-full border p-3 rounded-xl h-40"
+          className=" w-full h-40 border border-slate-300 text-slate-800 p-4 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <button
           disabled={hasApplied}
           onClick={handleApply}
-          className={`px-7 mt-4 py-2 rounded-xl text-white transition ${
+          className={`w-full py-3 rounded-xl text-white font-semibold transition ${
             hasApplied
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-green-600 hover:bg-green-700 cursor-pointer"
