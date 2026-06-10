@@ -1,3 +1,10 @@
+process.on("uncaughtException", (err) => {
+  console.log("UNCUGHT ERROR:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log("PROMISE ERROR:", err);
+});
 require("dotenv").config();
 
 const express = require("express");
