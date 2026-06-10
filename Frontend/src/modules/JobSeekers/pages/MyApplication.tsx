@@ -22,7 +22,7 @@ function MyApplicationsPage() {
 
   return (
     <div>
-      <h1 className="text-blue-800 text-3xl font-bold mb-6">My Applications</h1>
+      <h1 className="text-back text-3xl font-bold mb-6">My Applications</h1>
 
       <div className="space-y-4">
         {apps.map((app) => (

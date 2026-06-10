@@ -16,7 +16,7 @@ function JobSeekerLayout() {
       {/* Sidebar */}
       <aside className="w-72 border-r border-white/60 bg-gradient-to-b from-black to-indigo-800 text-white shadow-xl flex flex-col h-screen">
         <div className="p-8">
-          <h1 className="text-3xl font-bold">JobHunt</h1>
+          <h1 className="text-3xl text-blue-900 font-bold">JobHunt</h1>
 
           <p className="text-blue-100 mt-2 text-sm">Job Seeker Portal</p>
         </div>
@@ -74,7 +74,7 @@ function JobSeekerLayout() {
       </aside>
 
       {/* Content */}
-      <main className="flex-1 p-8 overflow-y-auto bg-slate-700">
+      <main className="flex-1 p-8 overflow-y-auto bg-white">
         <Outlet />
       </main>
     </div>
