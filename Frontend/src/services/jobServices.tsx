@@ -32,3 +32,8 @@ export const getApplicants = async (jobId: number) => {
 
   return response.data;
 };
+
+export const getDashboardStats = async () => {
+  const response = await api.get("/jobs/dashboard/stats");
+  return response.data;
+};

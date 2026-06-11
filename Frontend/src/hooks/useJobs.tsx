@@ -8,5 +8,6 @@ export const useJobs = () => {
     getJobById: jobService.getJobById,
     updateJob: jobService.updateJob,
     getApplicants: jobService.getApplicants,
+    getDashboardStats: jobService.getDashboardStats,
   };
 };

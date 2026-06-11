@@ -80,7 +80,7 @@ function JobSeekerLayout() {
         <div className="p-4 border-t border-white/10">
           <div className="mb-4 rounded-xl bg-white/5 p-4">
             <p className="text-xs uppercase tracking-wider text-slate-400">
-              Login as
+              Login as jobseeker
             </p>
 
             <p className="font-medium text-white mt-1">

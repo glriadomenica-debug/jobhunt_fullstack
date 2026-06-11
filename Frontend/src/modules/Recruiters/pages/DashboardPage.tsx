@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useJobs } from "../../../hooks/useJobs";
 
 function DashboardPage() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -9,20 +10,12 @@ function DashboardPage() {
     totalApplicants: 0,
   });
 
+  const { getDashboardStats } = useJobs();
+
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const token = localStorage.getItem("token");
-
-        const res = await axios.get(
-          "http://localhost:5000/api/jobs/dashboard/stats",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-
+        const res = await getDashboardStats();
         setStats(res.data.data);
       } catch (error) {
         console.error(error);
@@ -82,8 +75,8 @@ function DashboardPage() {
         <h2 className="text-2xl font-bold">Recruiter Dashboard</h2>
 
         <p className="mt-3 text-blue-100">
-          Create jobs, review applications, and manage hiring activities from
-          one place.
+          Create jobs, review applications and manage hiring activities from one
+          place.
         </p>
       </div>
     </div>

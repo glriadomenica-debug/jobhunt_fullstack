@@ -108,24 +108,34 @@ const deleteJob = async (req, res) => {
 
 const getDashboardStats = async (req, res) => {
   try {
-    console.log("USER LOGIN:", req.user);
+    const recruiterId = req.user.id;
 
-    const stats = await jobModel.getDashboardStats(req.user.id);
+    const totalJobs = await db.query(
+      "SELECT COUNT(*) AS total FROM jobs WHERE recruiter_id = ?",
+      [recruiterId],
+    );
 
-    console.log("STATS:", stats);
+    const totalApplicants = await db.query(
+      `
+      SELECT COUNT(*) AS total
+      FROM applications a
+      JOIN jobs j ON j.id = a.job_id
+      WHERE j.recruiter_id = ?
+    `,
+      [recruiterId],
+    );
 
     res.json({
-      success: true,
-      data: stats,
+      data: {
+        totalJobs: totalJobs[0][0].total,
+        totalApplicants: totalApplicants[0][0].total,
+      },
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 };
-
 module.exports = {
   getAllJobs,
   getJobById,
