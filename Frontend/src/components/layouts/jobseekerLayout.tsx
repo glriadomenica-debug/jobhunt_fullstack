@@ -36,11 +36,8 @@ function JobSeekerLayout() {
           <HiMenu size={28} className="text-white" />
         </button>
       </header>
-
       <aside
-        className={`fixed md:static top-0 left-0 h-screen w-72 bg-gradient-to-b from-slate-950 via-indigo-950 to-indigo-800 text-white shadow-2xl z-50 flex flex-col transform transition-transform duration-300 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        }`}
+        className={`fixed md:static top-0 left-0 h-screen w-72 bg-gradient-to-b from-slate-950 via-indigo-950 to-indigo-800 text-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
         <button
           onClick={() => setSidebarOpen(false)}
@@ -56,35 +53,58 @@ function JobSeekerLayout() {
         </div>
 
         <nav className="flex-1 px-4 py-6 space-y-3">
-          <NavLink to="/jobs" className={navStyle}>
+          <NavLink
+            to="/jobs"
+            className={navStyle}
+            onClick={() => setSidebarOpen(false)}
+          >
             🔍 <span>Jobs</span>
           </NavLink>
 
-          <NavLink to="/applications/mine" className={navStyle}>
+          <NavLink
+            to="/applications/mine"
+            className={navStyle}
+            onClick={() => setSidebarOpen(false)}
+          >
             📄 <span>My Applications</span>
           </NavLink>
 
-          <NavLink to="/jobseekers/profile" className={navStyle}>
+          <NavLink
+            to="/jobseekers/profile"
+            className={navStyle}
+            onClick={() => setSidebarOpen(false)}
+          >
             👤 <span>My Profile</span>
           </NavLink>
         </nav>
 
         <div className="p-4 border-t border-white/10">
+          <div className="mb-4 rounded-xl bg-white/5 p-4 backdrop-blur-sm">
+            <p className="text-xs uppercase tracking-wider text-slate-400">
+              Account
+            </p>
+
+            <p className="font-medium text-white mt-1">
+              {JSON.parse(localStorage.getItem("user") || "{}")?.name}
+            </p>
+          </div>
+
           <button
             onClick={logout}
-            className="group w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-300 border border-red-500/20 hover:bg-red-500 hover:text-white transition-all duration-300 cursor-pointer"
+            className="group w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 hover:bg-red-500  hover:text-white transition-all duration-300 cursor-pointer"
           >
             <CgLogOut
               size={20}
               className="group-hover:translate-x-1 transition-transform"
             />
+
             <span className="font-medium">Logout</span>
           </button>
         </div>
       </aside>
 
       {/* Content */}
-      <main className="flex-1 overflow-y-auto bg-slate-50 p-4 md:p-8 pt-20 md:pt-8">
+      <main className="flex-1 overflow-y-auto bg-slate-100 p-4 md:p-8 pt-20 md:pt-8">
         <Outlet />
       </main>
     </div>

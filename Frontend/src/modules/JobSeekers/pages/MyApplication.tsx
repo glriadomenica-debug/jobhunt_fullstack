@@ -48,7 +48,7 @@ function MyApplicationsPage() {
         {apps.map((app) => (
           <div
             key={app.id}
-            className="bg-whitep-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <h2 className="text-slate-900 font-bold text-xl md:text-2xl">
               {app.title}
