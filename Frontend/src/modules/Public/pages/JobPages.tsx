@@ -103,7 +103,7 @@ function JobsPage() {
               {" - "}
               Rp {Number(job.salary_max).toLocaleString()}
             </span>
-            <p className="text-black text-sm">📍{job.location}</p>
+            <p className="text-black text-sm mt-2">📍{job.location}</p>
             <div className="mt-3">
               <span className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">
                 {job.type}
