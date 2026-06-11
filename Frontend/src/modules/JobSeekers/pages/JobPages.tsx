@@ -109,10 +109,11 @@ function JobsPage() {
             <h2 className="text-slate-900 text-xl font-bold">{job.title}</h2>
 
             <p className="text-slate-700 font-medium">{job.company}</p>
-            <p className="text-black text-sm mt-1">
-              Rp {Number(job.salary_min).toLocaleString()} - Rp{" "}
-              {Number(job.salary_max).toLocaleString()}
-            </p>
+            <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm mt-1">
+              Rp {Number(job.salary_min).toLocaleString()}
+              {" - "}
+              Rp {Number(job.salary_max).toLocaleString()}
+            </span>
 
             <p className="text-slate-500 text-sm mt-1">📍{job.location}</p>
 
