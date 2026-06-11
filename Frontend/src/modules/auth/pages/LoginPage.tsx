@@ -46,8 +46,8 @@ function LoginPage() {
   };
 
   return (
-    <div className="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition">
-      <h2 className="text-3xl font-bold mb-2 text-blue-900 font-bold">Login</h2>
+    <div className="w-full max-w-md mx-auto bg-white p-6 md:p-8 rounded-2xl shadow">
+      <h2 className="text-3xl font-bold mb-2 text-slate-800">Login</h2>
 
       <p className="text-gray-500 mb-6">Welcome back!</p>
 
@@ -64,10 +64,8 @@ function LoginPage() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label>Email</label>
-
           <input
             type="email"
-            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full border rounded-lg px-4 py-2"
@@ -76,10 +74,8 @@ function LoginPage() {
 
         <div>
           <label>Password</label>
-
           <input
             type="password"
-            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full border rounded-lg px-4 py-2"
@@ -88,7 +84,7 @@ function LoginPage() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg cursor-pointer"
+          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
         >
           Login
         </button>
@@ -96,10 +92,7 @@ function LoginPage() {
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
-            <Link
-              to="/register"
-              className="text-blue-600 hover:underline font-medium"
-            >
+            <Link to="/register" className="text-blue-600 hover:underline">
               Register
             </Link>
           </p>
