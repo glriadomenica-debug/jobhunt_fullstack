@@ -3,45 +3,32 @@ import JobSeekerLayout from "../../components/layouts/jobseekerLayout";
 import JobPages from "./pages/JobPages";
 import JobsDetails from "./pages/JobDetails";
 import ProfileJobSeeker from "../Profile/pages/ProfilePage";
+import ProtectedRoute from "../../routes/ProtectedRoute";
 
 const JobSeekersRoute = [
   {
-    path: "/applications/mine",
-    element: <JobSeekerLayout />,
+    element: <ProtectedRoute allowedRoles={["job_seeker"]} />, 
     children: [
       {
-        index: true,
-        element: <MyApplication />,
-      },
-    ],
-  },
-  {
-    path: "/jobs",
-    element: <JobSeekerLayout />,
-    children: [
-      {
-        index: true,
-        element: <JobPages />,
-      },
-    ],
-  },
-  {
-    path: "/jobseekers/jobs/:id",
-    element: <JobSeekerLayout />,
-    children: [
-      {
-        index: true,
-        element: <JobsDetails />,
-      },
-    ],
-  },
-  {
-    path: "/jobseekers/profile",
-    element: <JobSeekerLayout />,
-    children: [
-      {
-        index: true,
-        element: <ProfileJobSeeker />,
+        element: <JobSeekerLayout />,
+        children: [
+          {
+            path: "/applications/mine",
+            element: <MyApplication />,
+          },
+          {
+            path: "/jobs",
+            element: <JobPages />,
+          },
+          {
+            path: "/jobseekers/jobs/:id",
+            element: <JobsDetails />,
+          },
+          {
+            path: "/jobseekers/profile",
+            element: <ProfileJobSeeker />,
+          },
+        ],
       },
     ],
   },
