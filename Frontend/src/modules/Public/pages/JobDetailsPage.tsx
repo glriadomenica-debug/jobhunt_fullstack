@@ -76,7 +76,11 @@ function JobDetailPage() {
 
           <span className="text-black text-md">📍 {job.location}</span>
 
-          <span className="text-black text-md">💰 {job.salary}</span>
+          <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
+            Rp {Number(job.salary_min).toLocaleString()}
+            {" - "}
+            Rp {Number(job.salary_max).toLocaleString()}
+          </span>
         </div>
         <hr className="my-5" />
         <h2 className="text-black font-bold text-xl mb-2">Job Description</h2>
