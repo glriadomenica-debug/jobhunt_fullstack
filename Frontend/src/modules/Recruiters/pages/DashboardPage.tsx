@@ -15,7 +15,7 @@ function DashboardPage() {
     const fetchStats = async () => {
       try {
         const res = await getDashboardStats();
-        setStats(res.data.data);
+        setStats(res.data);
       } catch (error) {
         console.error(error);
       }
@@ -33,7 +33,7 @@ function DashboardPage() {
         </h1>
 
         <p className="text-slate-500 mt-2">
-          Hello <span className="font-semibold">{user.name}</span>, manage your
+          Hello <span className="font-semibold">{user?.name}</span>, manage your
           job postings and applicants.
         </p>
       </div>
