@@ -21,14 +21,13 @@ function JobSeekerLayout() {
     }`;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="h-screen bg-slate-50 flex overflow-hidden">
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
         />
       )}
-
       <header className="fixed top-0 left-0 right-0 h-16 bg-blue-900 flex items-center justify-between px-4 md:hidden z-50">
         <h1 className="text-white font-bold text-xl">JobHunt</h1>
 
@@ -37,7 +36,7 @@ function JobSeekerLayout() {
         </button>
       </header>
       <aside
-        className={`fixed md:static top-0 left-0 h-screen w-72 bg-gradient-to-b from-slate-950 via-indigo-950 to-indigo-800 text-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+        className={`fixed md:relative top-0 left-0 h-screen w-72 bg-gradient-to-b from-slate-950 via-indigo-950 to-indigo-800 text-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
         <button
           onClick={() => setSidebarOpen(false)}
@@ -79,9 +78,9 @@ function JobSeekerLayout() {
         </nav>
 
         <div className="p-4 border-t border-white/10">
-          <div className="mb-4 rounded-xl bg-white/5 p-4 backdrop-blur-sm">
+          <div className="mb-4 rounded-xl bg-white/5 p-4">
             <p className="text-xs uppercase tracking-wider text-slate-400">
-              Account
+              Login as
             </p>
 
             <p className="font-medium text-white mt-1">
@@ -102,7 +101,6 @@ function JobSeekerLayout() {
           </button>
         </div>
       </aside>
-
       {/* Content */}
       <main className="flex-1 overflow-y-auto bg-slate-100 p-4 md:p-8 pt-20 md:pt-8">
         <Outlet />
