@@ -75,6 +75,8 @@ function JobDetailPage() {
           </span>
 
           <span className="text-black text-md">📍 {job.location}</span>
+
+          <span className="text-black text-md">💰 {job.salary}</span>
         </div>
         <hr className="my-5" />
         <h2 className="text-black font-bold text-xl mb-2">Job Description</h2>

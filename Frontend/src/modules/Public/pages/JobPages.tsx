@@ -97,9 +97,8 @@ function JobsPage() {
             className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition"
           >
             <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
-
             <p className="text-black">{job.company}</p>
-
+            <p className="text-black text-sm">💰 {job.salary}</p>
             <p className="text-black text-sm">📍{job.location}</p>
 
             <div className="mt-3">
