@@ -91,6 +91,9 @@ function EditJobPage() {
     }
   };
 
+  const inputStyle =
+    "w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500";
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
@@ -103,28 +106,29 @@ function EditJobPage() {
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-blue-800">Edit Job</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
+            Edit Job
+          </h1>
 
-          <p className="text-lg text-slate-700 font-bold mt-2">
-            Update your job posting information.
+          <p className="text-slate-500 mt-2">
+            Update your job posting information
           </p>
         </div>
 
-        <div className="bg-blue-800 rounded-3xl shadow-sm border border-slate-100 p-8">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 md:p-10">
           {error && (
-            <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
+            <div className="mb-6 bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl">
               {error}
             </div>
           )}
-
           {success && (
-            <div className="mb-4 bg-green-100 text-green-700 p-4 rounded-xl">
+            <div className="mb-6 bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl">
               {success}
             </div>
           )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Job Title
               </label>
 
@@ -132,27 +136,25 @@ function EditJobPage() {
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Frontend Developer"
-                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500focus:border-transparent transition"
+                className={inputStyle}
               />
             </div>
 
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
-                Company Name
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Company
               </label>
 
               <input
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                placeholder="Google"
-                className=" w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={inputStyle}
               />
             </div>
 
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Location
               </label>
 
@@ -160,21 +162,19 @@ function EditJobPage() {
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                placeholder="Jakarta, Indonesia"
-                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500
-              focus:border-transparent"
+                className={inputStyle}
               />
             </div>
 
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Job Type
               </label>
 
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl text-slate-500 font-bold border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputStyle}
               >
                 <option value="full-time">Full Time</option>
                 <option value="part-time">Part Time</option>
@@ -183,10 +183,9 @@ function EditJobPage() {
               </select>
             </div>
 
-            {/* Salary */}
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-lg font-bold text-white mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Minimum Salary
                 </label>
 
@@ -194,12 +193,12 @@ function EditJobPage() {
                   type="number"
                   value={salaryMin}
                   onChange={(e) => setSalaryMin(e.target.value)}
-                  className=" w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200"
+                  className={inputStyle}
                 />
               </div>
 
               <div>
-                <label className="block text-lg font-bold text-white mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Maximum Salary
                 </label>
 
@@ -207,65 +206,61 @@ function EditJobPage() {
                   type="number"
                   value={salaryMax}
                   onChange={(e) => setSalaryMax(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200"
+                  className={inputStyle}
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
-                Job Description
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Description
               </label>
 
               <textarea
                 rows={6}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Describe the job..."
-                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputStyle}
               />
             </div>
 
             <div>
-              <label className="block text-lg font-bold text-white mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Requirements
               </label>
 
               <textarea
-                rows={4}
+                rows={5}
                 value={requirements}
                 onChange={(e) => setRequirements(e.target.value)}
-                placeholder="React, JavaScript, Tailwind"
-                className="w-full px-4 py-3 rounded-xl text-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputStyle}
               />
             </div>
 
-            {/* Status */}
             <div>
-              <label className="flex items-center gap-3 text-lg text-slate-400 font-bold">
+              <label className="flex items-center gap-3 text-slate-700 font-medium">
                 <input
                   type="checkbox"
                   checked={isActive}
                   onChange={(e) => setIsActive(e.target.checked)}
-                  className="h-4 w-4"
+                  className="h-5 w-5 accent-indigo-600"
                 />
                 Active Job Posting
               </label>
             </div>
 
-            {/* Buttons */}
-            <div className="flex justify-end gap-3 pt-4">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4">
               <button
                 type="button"
                 onClick={() => navigate("/my-jobs")}
-                className="px-6 py-3 rounded-xl border border-slate-300 text-white cursor-pointer hover:bg-slate-100 hover:text-blue-900 hover:font-bold transition"
+                className="px-6 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 transition cursor-pointer"
               >
                 Cancel
               </button>
 
               <button
                 type="submit"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer font-medium shadow-md hover:shadow-lg hover:scale-[1.02] transition"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md hover:shadow-lg transition cursor-pointer"
               >
                 Update Job
               </button>

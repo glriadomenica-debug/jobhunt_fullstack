@@ -45,100 +45,124 @@ function MyJobsPage() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <div className="h-12 w-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
-
   return (
     <>
-      <div>
-        <div className="flex justify-between items-center mb-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-black">My Jobs</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
+              My Jobs
+            </h1>
 
-            <p className="text-lg text-slate-700 tex-bold mt-2">
-              Manage your job postings
-            </p>
+            <p className="text-slate-500 mt-2">Manage all your job postings</p>
           </div>
 
           <button
             onClick={() => navigate("/jobs/create")}
-            className=" bg-blue-600 text-white text-lg px-3 py-3 border border-white rounded-xl shadow hover:shadow-lg cursor-pointer transition"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-medium transition shadow-md cursor-pointer"
           >
             + Create Job
           </button>
         </div>
 
-        <div className="grid gap-5">
-          {jobs.map((job) => (
-            <div
-              key={job.id}
-              className="bg-blue-800 rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
-            >
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="text-2xl font-bold text-white">{job.title}</h2>
-                  <p className="mt-3 text-xl text-white">
-                    Salary: Rp {Number(job.salary_min).toLocaleString()}
-                    {" - "}
-                    Rp {Number(job.salary_max).toLocaleString()}
-                  </p>
+        {/* Empty State */}
+        {jobs.length === 0 ? (
+          <div className="bg-white rounded-3xl border border-slate-100 p-12 text-center">
+            <div className="text-6xl mb-4">💼</div>
 
-                  <p className="text-lg text-white mt-1">{job.company}</p>
+            <h2 className="text-2xl font-bold text-slate-800">No Jobs Yet</h2>
 
-                  <p className="text-lg text-white mt-2">📍 {job.location}</p>
+            <p className="text-slate-500 mt-2">
+              Start by creating your first job posting.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-6">
+            {jobs.map((job) => (
+              <div
+                key={job.id}
+                className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-lg transition"
+              >
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-6">
+                  {/* Left */}
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h2 className="text-2xl font-bold text-slate-900">
+                        {job.title}
+                      </h2>
 
-                  <div className="flex gap-2 mt-3">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-md">
-                      {job.type}
-                    </span>
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          job.is_active
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-700"
+                        }`}
+                      >
+                        {job.is_active ? "Active" : "Inactive"}
+                      </span>
+                    </div>
 
-                    <span
-                      className={`px-3 py-1 rounded-full text-md ${
-                        job.is_active
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
-                    >
-                      {job.is_active ? "Active" : "Inactive"}
-                    </span>
+                    <p className="text-slate-600 mt-2">{job.company}</p>
+
+                    <p className="text-slate-500 mt-1">📍 {job.location}</p>
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+                        {job.type}
+                      </span>
+
+                      <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
+                        Rp {Number(job.salary_min).toLocaleString()}
+                        {" - "}
+                        Rp {Number(job.salary_max).toLocaleString()}
+                      </span>
+                    </div>
+
+                    <p className="text-slate-600 mt-4 line-clamp-3">
+                      {job.description}
+                    </p>
                   </div>
 
-                  <p className="mt-4 text-md text-white">{job.description}</p>
+                  {/* Actions */}
+                  <div className="flex lg:flex-col gap-3">
+                    <button
+                      onClick={() => navigate(`/jobs/${job.id}/applicants`)}
+                      className="flex items-center justify-center gap-2 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition cursor-pointer"
+                    >
+                      <TiDocumentText size={20} />
+                    </button>
 
-                  {/* <p className="mt-3 text-md text-slate-500">Requirements:</p> */}
+                    <button
+                      onClick={() => navigate(`/jobs/edit/${job.id}`)}
+                      className="flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition cursor-pointer"
+                    >
+                      <TiEdit size={20} />
+                    </button>
 
-                  <p className="mt-4 text-md text-white">{job.requirements}</p>
+                    <button
+                      onClick={() => {
+                        setSelectedJobId(job.id);
+                        setIsDeleteModalOpen(true);
+                      }}
+                      className="flex items-center justify-center gap-2 px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl transition cursor-pointer"
+                    >
+                      <TiTrash size={20} />
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="mt-5 flex gap-3">
-                <button
-                  onClick={() => navigate(`/jobs/${job.id}/applicants`)}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl cursor-pointer"
-                >
-                  <TiDocumentText size={15} />
-                </button>
-
-                <button
-                  onClick={() => navigate(`/jobs/edit/${job.id}`)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl cursor-pointer"
-                >
-                  <TiEdit size={15} />
-                </button>
-
-                <button
-                  onClick={() => {
-                    setSelectedJobId(job.id);
-                    setIsDeleteModalOpen(true);
-                  }}
-                  className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2 rounded-xl cursor-pointer"
-                >
-                  <TiTrash size={15} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
+
       <DeleteConfirmModal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}

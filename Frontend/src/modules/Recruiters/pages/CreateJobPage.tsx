@@ -67,117 +67,157 @@ function CreateJobPage() {
     }
   };
 
+  const inputStyle =
+    "w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500";
+
   return (
     <>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-black">Create Job</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
+            Create Job
+          </h1>
 
-          <p className="text-lg text-slate-400 font-bold mt-2">
-            Create a new job posting.
+          <p className="text-slate-500 mt-2">
+            Create a new opportunity for candidates
           </p>
         </div>
 
-        <div className="bg-blue-800 rounded-3xl shadow-lg border border-slate-100 p-8 md:p-12">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 md:p-10">
           {error && (
-            <div className="mb-4 bg-red-100 text-red-700 p-4 rounded-xl">
+            <div className="mb-6 bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl">
               {error}
             </div>
           )}
-
           {success && (
-            <div className="mb-4 bg-green-100 text-green-700 p-4 rounded-xl">
+            <div className="mb-6 bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl">
               {success}
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="space-y-6">
-            <input
-              type="text"
-              placeholder="Job Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-3 text-lg text-white border border-white rounded-xl"
-            />
-
-            <input
-              type="text"
-              placeholder="Company"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              className="w-full p-3 text-lg text-white border border-white rounded-xl"
-            />
-
-            <input
-              type="text"
-              placeholder="Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-3 text-lg text-white border border-white rounded-xl"
-            />
-
-            <select
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              className="w-full p-3 text-lg text-black border border-white rounded-xl"
-            >
-              <option value="full-time">Full Time</option>
-
-              <option value="part-time">Part Time</option>
-
-              <option value="contract">Contract</option>
-
-              <option value="internship">Internship</option>
-            </select>
-
-            <textarea
-              rows={5}
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="w-full p-3 text-lg text-white border border-white rounded-xl"
-            />
-
-            <textarea
-              rows={4}
-              placeholder="Requirements"
-              value={requirements}
-              onChange={(e) => setRequirements(e.target.value)}
-              className="w-full p-3 text-lg text-white border border-white rounded-xl"
-            />
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="number"
-                placeholder="Minimum Salary"
-                value={salaryMin}
-                onChange={(e) => setSalaryMin(e.target.value)}
-                className="p-3 text-lg text-white border border-white rounded-xl"
-              />
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Job Title
+              </label>
 
               <input
-                type="number"
-                placeholder="Maximum Salary"
-                value={salaryMax}
-                onChange={(e) => setSalaryMax(e.target.value)}
-                className="p-3 text-lg text-white border border-white rounded-xl"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className={inputStyle}
               />
             </div>
 
-            <div className="flex justify-end gap-3">
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Company
+              </label>
+
+              <input
+                type="text"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Location
+              </label>
+
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Job Type
+              </label>
+
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                className={inputStyle}
+              >
+                <option value="full-time">Full Time</option>
+                <option value="part-time">Part Time</option>
+                <option value="contract">Contract</option>
+                <option value="internship">Internship</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Description
+              </label>
+
+              <textarea
+                rows={6}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Requirements
+              </label>
+
+              <textarea
+                rows={5}
+                value={requirements}
+                onChange={(e) => setRequirements(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Minimum Salary
+                </label>
+
+                <input
+                  type="number"
+                  value={salaryMin}
+                  onChange={(e) => setSalaryMin(e.target.value)}
+                  className={inputStyle}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Maximum Salary
+                </label>
+
+                <input
+                  type="number"
+                  value={salaryMax}
+                  onChange={(e) => setSalaryMax(e.target.value)}
+                  className={inputStyle}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4">
               <button
                 type="button"
                 onClick={() => navigate("/my-jobs")}
-                className="px-5 py-3 border border-white bg-red-700 text-black cursor-pointer rounded-xl hover:bg-red-500"
+                className="px-6 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 transition cursor-pointer"
               >
-                <TiCancel size={15} />
+                <TiCancel size={18} />
               </button>
-
               <button
                 type="submit"
-                className=" px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer rounded-xl border border-white"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md hover:shadow-lg transition cursor-pointer"
               >
-                <VscSaveAs size={15} />
+                <VscSaveAs size={18} />
               </button>
             </div>
           </form>
