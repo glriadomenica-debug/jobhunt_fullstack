@@ -3,16 +3,26 @@ import { useApplications } from "../../../hooks/useApplications";
 
 function MyApplicationsPage() {
   const { getMyApplications } = useApplications();
+  const [loading, setLoading] = useState(true);
   const [apps, setApps] = useState<any[]>([]);
 
   useEffect(() => {
     const fetch = async () => {
       const res = await getMyApplications();
       setApps(res.data);
+      setLoading(false);
     };
 
     fetch();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
+      </div>
+    );
+  }
 
   const badge = (status: string) => {
     if (status === "accepted") return "bg-green-100 text-green-700";

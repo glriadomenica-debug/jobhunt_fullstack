@@ -7,6 +7,7 @@ function ProfilePage() {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { updateUserProfile } = useAuth();
+  const [loading, setLoading] = useState(true);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -27,8 +28,18 @@ function ProfilePage() {
       setSuccess("Profile updated successfully");
     } catch (error: any) {
       setError(error.response?.data?.message || "Update failed");
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-2 md:px-0">
