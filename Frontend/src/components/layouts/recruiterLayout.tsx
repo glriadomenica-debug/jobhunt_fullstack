@@ -89,7 +89,7 @@ function RecruiterLayout() {
           </NavLink>
 
           <NavLink
-            to="/profile"
+            to="/recruiter/profile"
             className={navStyle}
             onClick={() => setSidebarOpen(false)}
           >
@@ -108,14 +108,7 @@ function RecruiterLayout() {
 
           <button
             onClick={logout}
-            className="group w-full flex items-center justify-center gap-3
-            px-4 py-3 rounded-xl
-            bg-red-500/10
-            border border-red-500/20
-            text-red-300
-            hover:bg-red-500
-            hover:text-white
-            transition-all duration-300 cursor-pointer"
+            className="group w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 hover:bg-red-500 hover:text-white transition-all duration-300 cursor-pointer"
           >
             <CgLogOut
               size={20}
@@ -127,18 +120,7 @@ function RecruiterLayout() {
         </div>
       </aside>
 
-      <main
-        className="
-          flex-1
-          overflow-y-auto
-          bg-slate-100
-          p-4
-          md:p-6
-          lg:p-8
-          pt-20
-          md:pt-8
-        "
-      >
+      <main className=" flex-1 overflow-y-auto bg-slate-100 p-4 md:p-6 lg:p-8 pt-20 md:pt-8 ">
         <Outlet />
       </main>
     </div>

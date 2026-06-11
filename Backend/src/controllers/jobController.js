@@ -108,7 +108,11 @@ const deleteJob = async (req, res) => {
 
 const getDashboardStats = async (req, res) => {
   try {
+    console.log("USER LOGIN:", req.user);
+
     const stats = await jobModel.getDashboardStats(req.user.id);
+
+    console.log("STATS:", stats);
 
     res.json({
       success: true,

@@ -58,7 +58,7 @@ const RecruiterRoutes = [
     ],
   },
   {
-    path: "/profile",
+    path: "/recruiter/profile",
     element: <RecruiterLayout />,
     children: [
       {
