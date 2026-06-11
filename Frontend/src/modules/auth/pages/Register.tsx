@@ -64,7 +64,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-xl shadow">
+    <div className="w-full max-w-md mx-auto bg-white p-6 md:p-8 rounded-2xl shadow">
       <h2 className="text-3xl font-bold mb-2">Register</h2>
 
       <p className="text-gray-500 mb-6">Create your account</p>

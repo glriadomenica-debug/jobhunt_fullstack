@@ -47,16 +47,16 @@ function JobsPage() {
 
   return (
     <div>
-      {/* HEADER */}
       <div className="mb-8">
         {/* <h1 className="text-3xl font-bold text-slate-800">
           Find Your Dream Job
         </h1> */}
 
-        <p className="text-slate-900 text-xl">Explore thousands of opportunities</p>
+        <p className="text-slate-900 text-xl">
+          Explore thousands of opportunities
+        </p>
       </div>
 
-      {/* SEARCH + FILTER */}
       <div className="p-4 rounded-2xl shadow mb-6 flex flex-col md:flex-row gap-3">
         <input
           type="text"
@@ -78,7 +78,7 @@ function JobsPage() {
       </div>
 
       {/* GRID JOBS */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredJobs.length === 0 && (
           <div className="col-span-full bg-white rounded-2xl p-10 text-center shadow">
             <h3 className="text-xl font-semibold text-slate-700">
@@ -94,7 +94,7 @@ function JobsPage() {
         {filteredJobs.map((job: any) => (
           <div
             key={job.id}
-            className="bg-black p-5 rounded-2xl shadow hover:shadow-lg transition"
+            className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition"
           >
             <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
 

@@ -65,12 +65,10 @@ function JobDetailPage() {
   if (!job) return <p>Loading...</p>;
 
   return (
-    <div className="grid md:grid-cols-1 gap-3">
-      <div className="md:col-span-2 bg-white p-6 rounded-2xl shadow">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
         <h1 className="text-3xl font-bold text-blue-800">{job.title}</h1>
-
         <p className="text-black mt-1">{job.company}</p>
-
         <div className="flex gap-2 mt-3">
           <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
             {job.type}
@@ -78,18 +76,16 @@ function JobDetailPage() {
 
           <span className="text-black text-md">📍 {job.location}</span>
         </div>
-
         <hr className="my-5" />
-
         <h2 className="text-black font-bold text-xl mb-2">Job Description</h2>
         <p className="text-slate-600">{job.description}</p>
-
         <h2 className="text-black font-bold text-xl mt-5 mb-2">Requirements</h2>
         <p className="text-slate-600">{job.requirements}</p>
       </div>
-
       <div className="bg-white p-5 rounded-2xl shadow h-fit">
-        <h2 className="text-slate-600 font-bold text-lg mb-3">Apply for this job</h2>
+        <h2 className="text-slate-600 font-bold text-lg mb-3">
+          Apply for this job
+        </h2>
         {error && (
           <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-4">
             <p className="text-sm font-medium text-red-700">{error}</p>
