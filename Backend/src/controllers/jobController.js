@@ -110,38 +110,26 @@ const getDashboardStats = async (req, res) => {
   try {
     const recruiterId = req.user.id;
 
-    const totalJobs = await db.query(
-      "SELECT COUNT(*) AS total FROM jobs WHERE recruiter_id = ?",
-      [recruiterId],
-    );
-
-    const totalApplicants = await db.query(
-      `
-      SELECT COUNT(*) AS total
-      FROM applications a
-      JOIN jobs j ON j.id = a.job_id
-      WHERE j.recruiter_id = ?
-    `,
-      [recruiterId],
-    );
+    const stats = await jobModel.getDashboardStats(recruiterId);
 
     res.json({
-      data: {
-        totalJobs: totalJobs[0][0].total,
-        totalApplicants: totalApplicants[0][0].total,
-      },
+      data: stats,
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Dashboard error:", error);
+
+    res.status(500).json({
+      message: "Server error",
+    });
   }
 };
+
 module.exports = {
   getAllJobs,
   getJobById,
+  getMyJobs,
   createJob,
   updateJob,
   deleteJob,
-  getMyJobs,
   getDashboardStats,
 };
