@@ -61,12 +61,12 @@ function JobsPage() {
         <input
           type="text"
           placeholder="Search jobs or company..."
-          className="w-full border border-white p-3 rounded-xl"
+          className="w-full border border-black p-3 rounded-xl"
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="border border-white p-3 rounded-xl"
+          className="border border-black p-3 rounded-xl"
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="all">All</option>
@@ -98,9 +98,9 @@ function JobsPage() {
           >
             <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
 
-            <p className="text-white">{job.company}</p>
+            <p className="text-black">{job.company}</p>
 
-            <p className="text-white text-sm">📍{job.location}</p>
+            <p className="text-black text-sm">📍{job.location}</p>
 
             <div className="mt-3">
               <span className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">

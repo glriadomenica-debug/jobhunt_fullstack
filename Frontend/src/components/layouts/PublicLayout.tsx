@@ -42,10 +42,10 @@ function PublicLayout() {
 
           <div className="mt-6 flex flex-col md:flex-row gap-3">
             <button
-              onClick={() => navigate("/jobs")}
+              onClick={() => navigate("/login")}
               className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold"
             >
-              Browse Jobs
+              Apply now
             </button>
 
             <button
