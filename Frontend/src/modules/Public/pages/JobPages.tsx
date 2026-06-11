@@ -98,7 +98,7 @@ function JobsPage() {
           >
             <h2 className="text-blue-700 text-2xl font-bold ">{job.title}</h2>
             <p className="text-black">{job.company}</p>
-            <p className="text-black text-sm">
+            <p className="text-black text-sm mt-1">
               Rp {Number(job.salary_min).toLocaleString()} - Rp{" "}
               {Number(job.salary_max).toLocaleString()}
             </p>

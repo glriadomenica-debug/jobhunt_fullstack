@@ -69,18 +69,16 @@ function JobDetailPage() {
       <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
         <h1 className="text-3xl font-bold text-blue-800">{job.title}</h1>
         <p className="text-black mt-1">{job.company}</p>
+        <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm mt-1">
+          Rp {Number(job.salary_min).toLocaleString()}
+          {" - "}
+          Rp {Number(job.salary_max).toLocaleString()}
+        </span>
         <div className="flex gap-2 mt-3">
           <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
             {job.type}
           </span>
-
           <span className="text-black text-md">📍 {job.location}</span>
-
-          <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
-            Rp {Number(job.salary_min).toLocaleString()}
-            {" - "}
-            Rp {Number(job.salary_max).toLocaleString()}
-          </span>
         </div>
         <hr className="my-5" />
         <h2 className="text-black font-bold text-xl mb-2">Job Description</h2>
