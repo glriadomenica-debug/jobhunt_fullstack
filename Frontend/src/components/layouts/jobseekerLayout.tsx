@@ -14,10 +14,10 @@ function JobSeekerLayout() {
   };
 
   const navStyle = ({ isActive }: { isActive: boolean }) =>
-    `block px-4 py-3 rounded-xl transition-all duration-200 ${
+    `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
       isActive
-        ? "bg-white text-blue-700 font-semibold shadow-md"
-        : "hover:bg-white/10 hover:translate-x-1 text-white"
+        ? "bg-white text-indigo-700 font-semibold shadow-lg"
+        : "text-white hover:bg-white/10 hover:translate-x-1"
     }`;
 
   return (
@@ -38,8 +38,9 @@ function JobSeekerLayout() {
       </header>
 
       <aside
-        className={` fixed md:static top-0 left-0 h-screen w-72 bg-gradient-to-b from-black to-indigo-800 text-white shadow-xl z-50 flex-col transform
-        transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+        className={`fixed md:static top-0 left-0 h-screen w-72 bg-gradient-to-b from-slate-950 via-indigo-950 to-indigo-800 text-white shadow-2xl z-50 flex flex-col transform transition-transform duration-300 ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        }`}
       >
         <button
           onClick={() => setSidebarOpen(false)}
@@ -48,47 +49,36 @@ function JobSeekerLayout() {
           <HiX size={24} />
         </button>
 
-        <div className="p-8">
-          <h1 className="text-3xl font-extrabold tracking-wide text-white">
-            JobHunt
-          </h1>
-          {/* <p className="text-blue-100 mt-2 text-sm">Job Seeker Portal</p> */}
-          <p className="text-blue-100 mt-2 text-sm">Find your dream career</p>
+        <div className="p-8 border-b border-white/10">
+          <h1 className="text-3xl font-extrabold tracking-wide">JobHunt</h1>
+
+          <p className="text-blue-200 mt-2 text-sm">Find your dream career</p>
         </div>
 
-        <nav className="px-4 space-y-2 flex-1">
-          <NavLink
-            to="/jobs"
-            className={navStyle}
-            onClick={() => setSidebarOpen(false)}
-          >
-            🔍 Jobs
+        <nav className="flex-1 px-4 py-6 space-y-3">
+          <NavLink to="/jobs" className={navStyle}>
+            🔍 <span>Jobs</span>
           </NavLink>
 
-          <NavLink
-            to="/applications/mine"
-            className={navStyle}
-            onClick={() => setSidebarOpen(false)}
-          >
-            📄 My Applications
+          <NavLink to="/applications/mine" className={navStyle}>
+            📄 <span>My Applications</span>
           </NavLink>
 
-          <NavLink
-            to="/jobseekers/profile"
-            className={navStyle}
-            onClick={() => setSidebarOpen(false)}
-          >
-            👤 My Profile
+          <NavLink to="/jobseekers/profile" className={navStyle}>
+            👤 <span>My Profile</span>
           </NavLink>
         </nav>
 
         <div className="p-4 border-t border-white/10">
           <button
             onClick={logout}
-            className="w-full px-4 py-3 rounded-xl text-red-100 hover:bg-white/10 transition cursor-pointer"
+            className="group w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-300 border border-red-500/20 hover:bg-red-500 hover:text-white transition-all duration-300 cursor-pointer"
           >
-            <CgLogOut className="inline mr-2" />
-            Logout
+            <CgLogOut
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+            <span className="font-medium">Logout</span>
           </button>
         </div>
       </aside>
