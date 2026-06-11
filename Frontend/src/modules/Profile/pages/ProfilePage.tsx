@@ -3,16 +3,18 @@ import { useAuth } from "../../../hooks/useAuth";
 
 function ProfilePage() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
-  const [name, setName] = useState(user.name);
+  const [name, setName] = useState(user?.name || "");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   const { updateUserProfile } = useAuth();
-  const [loading, setLoading] = useState(true);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     try {
+      setSubmitting(true);
       setError("");
       setSuccess("");
 
@@ -29,20 +31,13 @@ function ProfilePage() {
     } catch (error: any) {
       setError(error.response?.data?.message || "Update failed");
     } finally {
-      setLoading(false);
+      setSubmitting(false);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-5xl mx-auto px-2 md:px-0">
+      {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">
           My Profile
@@ -59,13 +54,16 @@ function ProfilePage() {
             <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white shadow-lg flex items-center justify-center text-4xl font-bold text-blue-600 border-4 border-white">
               {user?.name?.charAt(0)?.toUpperCase()}
             </div>
+
             <div className="mt-2 md:mt-12">
-              <h2 className="text-2xl font-bold text-slate-800">{user.name}</h2>
+              <h2 className="text-2xl font-bold text-slate-800">
+                {user?.name}
+              </h2>
 
-              <p className="text-slate-500">{user.email}</p>
+              <p className="text-slate-500">{user?.email}</p>
 
-              <span className="inline-bloc kmt-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
-                {user.role}
+              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
+                {user?.role}
               </span>
             </div>
           </div>
@@ -92,8 +90,7 @@ function ProfilePage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className=" w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500
-                "
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -104,8 +101,8 @@ function ProfilePage() {
 
               <input
                 disabled
-                value={user.email}
-                className=" w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-500"
+                value={user?.email}
+                className="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-500"
               />
             </div>
 
@@ -116,17 +113,19 @@ function ProfilePage() {
 
               <input
                 disabled
-                value={user.role}
-                className=" w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-500"
+                value={user?.role}
+                className="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-500"
               />
             </div>
 
+            {/* Button */}
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition"
+                disabled={submitting}
+                className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Save Changes
+                {submitting ? "Saving..." : "Save Changes"}
               </button>
             </div>
           </form>
