@@ -31,7 +31,7 @@ function ApplicantsPage() {
   }
 
   const statusColor = (status: string) => {
-    if (status === "accepted")
+    if (status === "reviewed")
       return "bg-green-100 text-green-700 border border-green-200";
 
     if (status === "rejected")
@@ -109,7 +109,7 @@ function ApplicantsPage() {
                 {app.status === "pending" ? (
                   <>
                     <button
-                      onClick={() => handleStatus(app.id, "accepted")}
+                      onClick={() => handleStatus(app.id, "reviewed")}
                       className="flex items-center gap-2 px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition cursor-pointer"
                     >
                       <HiCheckCircle size={18} />
@@ -124,7 +124,7 @@ function ApplicantsPage() {
                       Reject
                     </button>
                   </>
-                ) : app.status === "accepted" ? (
+                ) : app.status === "reviewed" ? (
                   <div className="text-green-600 font-semibold text-lg">
                     ✓ Candidate Accepted
                   </div>
