@@ -106,21 +106,33 @@ function ApplicantsPage() {
               </div>
 
               <div className="flex flex-row lg:flex-col gap-3">
-                <button
-                  onClick={() => handleStatus(app.id, "accepted")}
-                  className="flex items-center gap-2 px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition cursor-pointer"
-                >
-                  <HiCheckCircle size={18} />
-                  Accept
-                </button>
+                {app.status === "pending" ? (
+                  <>
+                    <button
+                      onClick={() => handleStatus(app.id, "accepted")}
+                      className="flex items-center gap-2 px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition cursor-pointer"
+                    >
+                      <HiCheckCircle size={18} />
+                      Accept
+                    </button>
 
-                <button
-                  onClick={() => handleStatus(app.id, "rejected")}
-                  className="flex items-center gap-2 px-5 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl transition cursor-pointer"
-                >
-                  <HiXCircle size={18} />
-                  Reject
-                </button>
+                    <button
+                      onClick={() => handleStatus(app.id, "rejected")}
+                      className="flex items-center gap-2 px-5 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl transition cursor-pointer"
+                    >
+                      <HiXCircle size={18} />
+                      Reject
+                    </button>
+                  </>
+                ) : app.status === "accepted" ? (
+                  <div className="text-green-600 font-semibold text-lg">
+                    ✓ Candidate Accepted
+                  </div>
+                ) : (
+                  <div className="text-red-600 font-semibold text-lg">
+                    ✕ Candidate Rejected
+                  </div>
+                )}
               </div>
             </div>
           </div>
