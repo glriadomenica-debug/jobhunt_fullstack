@@ -1,5 +1,6 @@
 const applicationModel = require("../models/applicationModel");
 
+//mengelola proses pelamaran
 const applyJob = async (req, res) => {
   try {
     const applicationId = await applicationModel.applyJob({
@@ -36,6 +37,7 @@ const getMyApplications = async (req, res) => {
   }
 };
 
+//daftar pelamar
 const getApplicants = async (req, res) => {
   try {
     const data = await applicationModel.getApplicants(req.params.id);

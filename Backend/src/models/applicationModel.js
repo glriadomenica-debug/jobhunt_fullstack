@@ -1,11 +1,13 @@
 const db = require("../config/db");
 
+//menyimpan lamaran kerja
 const applyJob = async (data) => {
   const [result] = await db.query("INSERT INTO applications SET ?", [data]);
 
   return result.insertId;
 };
 
+//menampilkan semua lamaran job-seeker
 const getMyApplications = async (userId) => {
   const [rows] = await db.query(
     `
@@ -24,6 +26,7 @@ const getMyApplications = async (userId) => {
   return rows;
 };
 
+//menampilkan daftar pelamar
 const getApplicants = async (jobId) => {
   const [rows] = await db.query(
     `
@@ -42,6 +45,7 @@ const getApplicants = async (jobId) => {
   return rows;
 };
 
+//update sttus lamaran (dilakukan oleh rekruiter)
 const updateStatus = async (applicationId, status) => {
   const [result] = await db.query(
     `

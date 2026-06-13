@@ -10,6 +10,7 @@ const getJobById = async (id) => {
   return rows[0];
 };
 
+//menampilkan lowongan milik Recruiter tertentu
 const getJobsByRecruiter = async (recruiterId) => {
   const [rows] = await db.query("SELECT * FROM jobs WHERE recruiter_id = ?", [
     recruiterId,

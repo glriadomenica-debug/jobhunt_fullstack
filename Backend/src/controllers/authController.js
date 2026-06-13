@@ -89,6 +89,7 @@ const login = async (req, res) => {
   }
 };
 
+//mengambil profil user yg sedang login
 const profile = async (req, res) => {
   try {
     const user = await userModel.findById(req.user.id);

@@ -16,6 +16,7 @@ const getAllJobs = async (req, res) => {
   }
 };
 
+//details lowongan
 const getJobById = async (req, res) => {
   try {
     const job = await jobModel.getJobById(req.params.id);
@@ -32,6 +33,7 @@ const getJobById = async (req, res) => {
   }
 };
 
+//menampilkan lowongan yg dipublish
 const getMyJobs = async (req, res) => {
   try {
     const jobs = await jobModel.getJobsByRecruiter(req.user.id);

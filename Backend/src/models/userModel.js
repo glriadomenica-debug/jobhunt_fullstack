@@ -1,11 +1,13 @@
 const db = require("../config/db");
 
+//mencari user (saat login)
 const findByEmail = async (email) => {
   const [rows] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
 
   return rows[0];
 };
 
+//Mengambil data
 const findById = async (id) => {
   const [rows] = await db.query(
     "SELECT id, name, email, role FROM users WHERE id = ?",
@@ -25,6 +27,7 @@ const createUser = async (name, email, password, role) => {
 
   return result.insertId;
 };
+
 const updateProfile = async (id, name) => {
   const [result] = await db.query(
     `
