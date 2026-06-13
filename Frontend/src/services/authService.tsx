@@ -1,3 +1,4 @@
+//logic komunikasi API dari UI (komunikasi dengan endpoint auth di backend)
 import api from "./api";
 
 interface LoginData {
@@ -12,6 +13,7 @@ interface RegisterData {
   role: string;
 }
 
+//menangani login...
 export const login = async (data: LoginData) => {
   const response = await api.post("/auth/login", data);
 

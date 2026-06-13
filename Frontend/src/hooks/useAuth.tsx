@@ -1,6 +1,8 @@
+//membungkus dan mengelola bisnis logic berkaitan dengan fitur tertentu sehingga dapat digunakan kembali oleh banyak komponen tanpa mengulang kode.
 import { login, register } from "../services/authService";
 import { updateProfile } from "../services/authService";
 
+//menjadi jembatan antara UI dan Auth services
 export const useAuth = () => {
   const loginUser = async (email: string, password: string) => {
     const data = await login({
