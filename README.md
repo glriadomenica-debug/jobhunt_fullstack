@@ -44,7 +44,7 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, and Node.js), the app
 ### Backend
 - Node.js
 - Express.js
-- MongoDB
+- MySQL
 - JSON Web Token (JWT)
 - BcryptJS
 - CORS
